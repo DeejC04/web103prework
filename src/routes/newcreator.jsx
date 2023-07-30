@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../client";
 
-export default function New() {
+export default function NewCreator() {
     const [name, setName] = useState('');
     const [imageURL, setImageURL] = useState('');
     const [description, setDescription] = useState('');

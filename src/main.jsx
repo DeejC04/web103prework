@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Root from "./routes/root";
-import New from "./routes/new";
+import NewCreator from "./routes/newcreator";
 import ShowCreators from "./routes/showcreators";
 import SingleCreator from "./components/singleCreator";
 
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "/new",
-        element: <New />,
+        path: "/newcreator",
+        element: <NewCreator />,
       }, 
       {
         path: "/",
