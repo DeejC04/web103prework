@@ -11,7 +11,7 @@ export default function Root() {
                 <li><strong>Creatorverse</strong></li>
             </ul>
             <ul>
-                <li><a href="/new" role="button" class="outline">New Creator</a></li>
+                <li><a href="/newcreator" role="button" class="outline">New Creator</a></li>
                 <li><a href="/" role="button" class="outline">View All Creators</a></li>
             </ul>
         </nav>
