@@ -11,7 +11,7 @@ export default function Creator({ name, image, description, id }) {
                     <h3>{description}</h3>
                 </hgroup>
                 </header>
-                <img src={image} style={{maxWidth: "35em"}}/>
+                <img src={image} style={{maxHeight: "25em"}}/>
                 <footer>
                 <h4><Link to={`creators/${id}`}>View Creator Page</Link></h4>
                 </footer>
