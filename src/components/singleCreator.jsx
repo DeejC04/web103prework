@@ -1,5 +1,8 @@
-export default function SingleCreator() {
+export default function SingleCreator( {name, description } ) {
     return (
-        <h1>Creator</h1>
+        <hgroup>
+            <h1>{name}</h1>
+            <h2>{description}</h2>
+        </hgroup>
     )
 }

@@ -6,6 +6,7 @@ export default function Root() {
         <head>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"></link>
         </head>
+        <header>
         <nav class="container-fluid">
             <ul>
                 <li><strong>Creatorverse</strong></li>
@@ -15,6 +16,7 @@ export default function Root() {
                 <li><a href="/" role="button" class="outline">View All Creators</a></li>
             </ul>
         </nav>
+        </header>
         <Outlet />
         </>
     )

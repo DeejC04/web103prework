@@ -16,8 +16,12 @@ export default function ShowCreators() {
     }
 
     const listItems = creators.map(creator =>
-        <li key={creator.id}> 
+        <li 
+        key={creator.id} 
+        style={{ listStyleType: "none" }}
+        > 
         <Creator
+            id={creator.id}
             image={creator.imageURL}
             name={creator.name}
             description={creator.description}
