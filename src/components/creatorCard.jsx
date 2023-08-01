@@ -4,7 +4,7 @@ export default function Creator({ name, image, description, id }) {
     return (
         <>
         <div class="container">
-            <article>
+            <article style={{height: "auto"}}>
                 <header>
                 <hgroup>
                     <h2>{name}</h2>

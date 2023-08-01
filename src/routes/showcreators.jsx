@@ -20,7 +20,7 @@ export default function ShowCreators() {
         key={creator.id} 
         style={{ listStyleType: "none" }}
         > 
-        <Creator
+        <Creator class
             id={creator.id}
             image={creator.imageURL}
             name={creator.name}
@@ -28,5 +28,9 @@ export default function ShowCreators() {
         />
         </li>
     );
-    return <ul>{listItems}</ul>;
+    return (
+        
+       <div class="grid" style={{ gridTemplateColumns: "1fr 1fr", justifyItems: "stretch", alignItems: "stretch"}}>{listItems}</div>
+    
+    );
 }
