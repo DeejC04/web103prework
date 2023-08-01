@@ -17,7 +17,7 @@ export default function ShowCreators() {
 
     return (
 
-        <div class="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
+        <div class="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)", gap: "2em" }}>
             {creators.map((creator) => (
                 <Creator
                     id={creator.id}

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 export default function Creator({ name, image, description, id }) {
     return (
         <>
-            <div class="container grid" style={{alignItems: "stretch"}}>
-                <article>
+            <div class="container grid">
+                <article style={{display: "flex", flexDirection: "column"}}>
                     <header>
                         <hgroup>
                             <h2>{name}</h2>
@@ -14,7 +14,7 @@ export default function Creator({ name, image, description, id }) {
                     <img 
                     src={image} 
                     style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }} />
-                    <footer>
+                    <footer style={{marginTop: "auto"}}>
                         <h4><Link to={`creators/${id}`}>View Creator Page</Link></h4>
                     </footer>
                 </article>
