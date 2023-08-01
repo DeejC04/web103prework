@@ -15,6 +15,10 @@ export default function ShowCreators() {
         setCreators(data);
     }
 
+    if (!creators || creators.length === 0) {
+        return <p aria-busy="true">Loading...</p>;
+    }
+
     return (
 
         <div class="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>

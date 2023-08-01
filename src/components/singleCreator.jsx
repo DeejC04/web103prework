@@ -6,7 +6,7 @@ export default function SingleCreator() {
   const creator = useCreatorData(id);
 
   if (!creator) {
-    return <div>Loading...</div>;
+    return <div aria-busy="true">Loading...</div>;
   }
 
   return (
