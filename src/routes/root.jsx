@@ -11,7 +11,7 @@ export default function Root() {
             <header>
                 <nav class="container-fluid">
                     <ul>
-                        <li><strong>Creatorverse</strong></li>
+                        <li><a href="/" className="secondary" style={{textDecoration: "none"}}><strong>Creatorverse</strong></a></li>
                     </ul>
                     <ul>
                         <li><a href="/newcreator" role="button" class="outline">New Creator</a></li>
