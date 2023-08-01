@@ -11,9 +11,11 @@ export default function ShowCreators() {
     }, []);
 
     async function getCreators() {
-        const { data } = await supabase.from("creators").select();
+        const { data } = await supabase.from("creators").select().order('id', {ascending: false});
         setCreators(data);
     }
+
+    console.log(creators)
 
     if (!creators || creators.length === 0) {
         return <p aria-busy="true">Loading...</p>;
@@ -21,9 +23,10 @@ export default function ShowCreators() {
 
     return (
 
-        <div class="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
+        <div className="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
             {creators.map((creator) => (
                 <Creator
+                    key={creator.id}
                     id={creator.id}
                     name={creator.name}
                     image={creator.imageURL}
