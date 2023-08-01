@@ -15,22 +15,18 @@ export default function ShowCreators() {
         setCreators(data);
     }
 
-    const listItems = creators.map(creator =>
-        <li 
-        key={creator.id} 
-        style={{ listStyleType: "none" }}
-        > 
-        <Creator class
-            id={creator.id}
-            image={creator.imageURL}
-            name={creator.name}
-            description={creator.description}
-        />
-        </li>
-    );
     return (
-        
-       <div class="grid" style={{ gridTemplateColumns: "1fr 1fr", justifyItems: "stretch", alignItems: "stretch"}}>{listItems}</div>
-    
+
+        <div class="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
+            {creators.map((creator) => (
+                <Creator
+                    id={creator.id}
+                    name={creator.name}
+                    image={creator.imageURL}
+                    description={creator.description}
+                />
+            ))}
+        </div>
+
     );
 }

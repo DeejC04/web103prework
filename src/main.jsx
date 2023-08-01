@@ -10,7 +10,6 @@ import NewCreator from "./routes/newcreator";
 import ShowCreators from "./routes/showcreators";
 import SingleCreator from "./components/singleCreator";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,14 +18,14 @@ const router = createBrowserRouter([
       {
         path: "/newcreator",
         element: <NewCreator />,
-      }, 
+      },
       {
         path: "/",
         element: <ShowCreators />,
       },
       {
         path: "/creators/:id",
-        element: <SingleCreator />,
+        element: <SingleCreator/>,
       }
     ],
   },

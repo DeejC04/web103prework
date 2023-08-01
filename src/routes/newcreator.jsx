@@ -20,7 +20,7 @@ export default function NewCreator() {
         if (error) {
             console.log(error)
         } else {
-            console.log(`Inserted ${name} and ${imageURL} into table`)
+            console.log(`Inserted ${name} and ${imageURL} into table.`)
             alert(`Submitted ${name}`)
         }
 
