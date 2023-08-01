@@ -9,17 +9,17 @@ export default function Root() {
                 <meta name="keywords" content="react, javascript, web development" />
             </head>
             <header>
-                <nav class="container-fluid">
+                <nav className="container-fluid">
                     <ul>
                         <li><a href="/" className="secondary" style={{textDecoration: "none"}}><strong>Creatorverse</strong></a></li>
                     </ul>
                     <ul>
-                        <li><a href="/newcreator" role="button" class="outline">New Creator</a></li>
-                        <li><a href="/" role="button" class="outline">View All Creators</a></li>
+                        <li><a href="/newcreator" role="button" className="outline">New Creator</a></li>
+                        <li><a href="/" role="button" className="outline">View All Creators</a></li>
                     </ul>
                 </nav>
             </header>
-            <main class="container">
+            <main className="container">
                 <Outlet />
             </main>
         </>

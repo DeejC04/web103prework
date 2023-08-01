@@ -26,7 +26,7 @@ export default function NewCreator() {
 
     }
     return (
-        <div class="container">
+        <div className="container">
             <form onSubmit={handleSubmit}>
                 <label>
                     Creator Name:

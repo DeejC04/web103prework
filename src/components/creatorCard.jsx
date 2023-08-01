@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Creator({ name, image, description, id }) {
-    if (!name || !image || !description || !id) {
+    if (!id) {
         return(
             <div aria-busy="true">Loading...</div>
         )
