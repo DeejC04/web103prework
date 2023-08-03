@@ -47,7 +47,7 @@ To run this project, you will need to first create a Supabase account and projec
 Create a new table in Supabase. Name it whatever you'd like. Disable RLS and enable Realtime. Also, add columns specified below.
 
 **Creating a table**
-![Table Creation](./readmeFiles/gifs/tablecreation.gif)
+![Table Creation](./readmeFiles/gifs/tableCreation.gif)
 
 **Column Settings**
 ![Column Settings](./readmeFiles/images/tableColumns.png)
