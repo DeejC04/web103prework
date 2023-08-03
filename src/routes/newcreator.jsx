@@ -48,7 +48,7 @@ const NewCreator = () => {
         return
     }
 
-    const { data, error } = await supabase.from("creators").insert([
+    const { data, error } = await supabase.from("creators2").insert([
       { name, imageURL: imageURL || uploadedImageURL, description }, // Use the provided imageURL or the uploadedImageURL
     ]);
 

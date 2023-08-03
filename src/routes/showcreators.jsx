@@ -11,7 +11,7 @@ export default function ShowCreators() {
     }, []);
 
     async function getCreators() {
-        const { data } = await supabase.from("creators").select().order('id', {ascending: false});
+        const { data } = await supabase.from("creators2").select().order('id', {ascending: false});
         setCreators(data);
     }
 

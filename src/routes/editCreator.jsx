@@ -13,7 +13,7 @@ export default function EditCreator() {
     // Fetch the creator data based on the given id
     async function fetchCreatorData() {
       const { data, error } = await supabase
-        .from("creators")
+        .from("creators2")
         .select()
         .eq("id", id)
         .single();
@@ -34,7 +34,7 @@ export default function EditCreator() {
     e.preventDefault();
 
     const { data, error } = await supabase
-      .from("creators")
+      .from("creators2")
       .update({ name, imageURL, description })
       .eq("id", id)
       .select();
