@@ -11,26 +11,32 @@ export default function SingleCreator() {
     return <div aria-busy="true">Loading...</div>;
   }
 
-    async function deleteCreator() {
-        const { error } = await supabase
-        .from('creators')
-        .delete()
-        .eq('id', id)
+  async function deleteCreator() {
+    const { error } = await supabase
+      .from('creators')
+      .delete()
+      .eq('id', id)
 
-        if (!error) {
-            alert("creator deleted")
-        }
+    if (!error) {
+      alert("creator deleted")
     }
+  }
 
 
   return (
-    <div>
-      <h2>{creator.name}</h2>
+    <article>
+      <header>
+        <h2>{creator.name}</h2>
+      </header>
       <img src={creator.imageURL} alt={creator.name} />
       <p>{creator.description}</p>
       <p>Extra silly info because you clicked on {creator.name}!</p>
-      <button onClick={deleteCreator}>delete creator</button>
-      <h4><Link to={`../edit/${id}`}>Edit Creator</Link></h4>
-    </div>
+      <footer>
+        <section className="grid">
+          <button onClick={deleteCreator}>Delete Creator</button>
+          <Link to={`../edit/${id}`}><button>Edit Creator</button></Link>
+        </section>
+      </footer>
+    </article>
   );
 }
