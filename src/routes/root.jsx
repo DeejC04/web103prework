@@ -4,7 +4,7 @@ export default function Root() {
     return (
         <>
             <head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+                {/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" /> */}
                 <meta name="description" content="This is my website description" />
                 <meta name="keywords" content="react, javascript, web development" />
             </head>
