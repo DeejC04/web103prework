@@ -17,18 +17,6 @@ HTML, CSS, JavaScript, Vite, React, React Router, PicoCSS, and Supabase
 <a href="https://vitejs.dev/" title="Vite"><img src="https://github.com/get-icon/geticon/raw/master/icons/vite.svg" alt="Vite" width="21px" height="21px"></a>
 <a href="https://picocss.com/docs/" title="PicoCSS"><img src="https://www.vectorlogo.zone/logos/picocss/picocss-icon.svg" alt="PicoCSS" width="21px" height="21px"></a>
 <a href="https://supabase.com/" title="Supabase"><img src="https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png" alt="Supabase" width="21px" height="21px"></a>
-## Environment Variables
-
-To run this project, you will need to first create a Supabase account and project. Once done, locate your project API URL and the Anon key. Add the following environment variables to your .env file (excluding greater than/less than signs)
-
-`VITE_SUPABASE_URL=<Your Supabase URL>`
-
-`VITE_SUPABASE_API_KEY=<Your Anon Key>`
-
-## Configuring Supabase 
-
-Create a new table in Supabase. Disable RLS and enable Realtime. Also, add columns specified below.
-
 
 ## Run Locally
 
@@ -50,11 +38,40 @@ Install dependencies
   npm install
 ```
 
-Start the server
+Befire starting the server, we need to configure Supabase.
 
-```bash
-  npm run dev
-```
+## Configuring Supabase 
+
+To run this project, you will need to first create a Supabase account and project. Do this and then continue.
+
+Create a new table in Supabase. Name it whatever you'd like. Disable RLS and enable Realtime. Also, add columns specified below.
+
+**Creating a table**
+![Table Creation](./readmeFiles/gifs/tablecreation.gif)
+
+**Column Settings**
+![Column Settings](./readmeFiles/images/tableColumns.png)
+
+Next, create a storage bucket called `images` and enable it as a public bucket.
+
+![Bucket Creation](./readmeFiles/gifs/bucketCreation.gif)
+
+To allow users to add to and view contents, add a custom policy as follows, with the only text in the box being `true`. Enable all methods for all users.
+
+![Bucket Policies](./readmeFiles/gifs/bucketPolicy.gif)
+
+## Finalizing Supabase Setup & Environment Variables
+
+Finally, within your local project files, we'll set up our environment variables.
+
+Once done, locate your project API URL and the Anon key. Add the following environment variables to your .env file (excluding greater than/less than signs) 
+
+`VITE_SUPABASE_URL=<Your Supabase URL>` `VITE_SUPABASE_API_KEY=<Your Anon Key>`
+`VITE_SUPABASE_TABLE_NAME=<Your Supabase Table Name>`
+
+# Running the Project
+
+Finally, to actually run the web-app, input `npm run dev` into your terminal.
 
 ### License
 

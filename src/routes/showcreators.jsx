@@ -23,7 +23,7 @@ useEffect(() => {
 
     async function getCreators() {
         const { data } = await supabase
-            .from("creators2")
+            .from(import.meta.env.VITE_SUPABASE_TABLE_NAME)
             .select()
             .order("id", { ascending: false })
         setCreators(data)

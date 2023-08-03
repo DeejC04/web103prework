@@ -53,7 +53,7 @@ const NewCreator = () => {
     }
 
     const { data, error } = await supabase
-      .from("creators2")
+      .from(import.meta.env.VITE_SUPABASE_TABLE_NAME)
       .insert([
         { name, imageURL: imageURL || uploadedImageURL, description, youtubeURL, twitterURL, instagramURL }
       ])

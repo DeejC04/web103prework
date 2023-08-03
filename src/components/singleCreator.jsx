@@ -16,7 +16,7 @@ export default function SingleCreator() {
 
   async function deleteCreator() {
     const { error } = await supabase
-      .from("creators2")
+      .from(import.meta.env.VITE_SUPABASE_TABLE_NAME)
       .delete()
       .eq("id", id)
 
