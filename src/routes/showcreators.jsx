@@ -30,7 +30,7 @@ useEffect(() => {
     }
 
     if (!creators || creators.length === 0) {
-        return <p aria-busy="true">Loading...</p>
+        return <h1 style={{textAlign: "center"}}>No creators. <a href="/newcreator">Would you like to add one?</a></h1>
     }
 
     return (
@@ -43,6 +43,9 @@ useEffect(() => {
                     name={creator.name}
                     image={creator.imageURL}
                     description={creator.description}
+                    youtube={creator.youtubeURL}
+                    twitter={creator.twitterURL}
+                    instagram={creator.instagramURL}
                 />
             ))}
         </div>

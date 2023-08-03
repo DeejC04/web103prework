@@ -25,6 +25,10 @@ To run this project, you will need to first create a Supabase account and projec
 
 `VITE_SUPABASE_API_KEY=<Your Anon Key>`
 
+## Configuring Supabase 
+
+Create a new table in Supabase. Disable RLS and enable Realtime. Also, add columns specified below.
+
 
 ## Run Locally
 

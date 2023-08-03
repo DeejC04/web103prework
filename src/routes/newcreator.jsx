@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { supabase } from "../client"
 
 const NewCreator = () => {
@@ -6,6 +6,10 @@ const NewCreator = () => {
   const [description, setDescription] = useState("")
   const [selectedFile, setSelectedFile] = useState(null)
   const [imageURL, setImageURL] = useState("")
+  const [youtubeURL, setYoutubeURL] = useState("")
+  const [twitterURL, setTwitterURL] = useState("")
+  const [instagramURL, setInstagramURL] = useState("")
+  const [preview, setPreview] = useState(null)
 
   const handleUpload = async (file) => {
     try {
@@ -43,7 +47,7 @@ const NewCreator = () => {
     }
 
 
-    if (!uploadedImageURL || !imageURL) {
+    if (!uploadedImageURL && !imageURL) {
       alert("Please enter an image URL or upload one!")
       return
     }
@@ -51,7 +55,7 @@ const NewCreator = () => {
     const { data, error } = await supabase
       .from("creators2")
       .insert([
-        { name, imageURL: imageURL || uploadedImageURL, description }
+        { name, imageURL: imageURL || uploadedImageURL, description, youtubeURL, twitterURL, instagramURL }
       ])
 
 
@@ -70,9 +74,29 @@ const NewCreator = () => {
     }
   }
 
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined)
+      return
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile)
+    setPreview(objectUrl)
+
+    return () => URL.revokeObjectURL(objectUrl)
+  }, [selectedFile])
+
+  const onSelectFile = e => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined)
+      return
+    }
+  }
+
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
+        <h2>Basic Info</h2>
         <label>
           Creator Name:
           <input
@@ -87,9 +111,10 @@ const NewCreator = () => {
           <input
             name="creatorImage"
             type="text"
-            value={imageURL} 
+            value={imageURL}
             onChange={(e) => setImageURL(e.target.value)}
           />
+          {imageURL && (<img src={imageURL}></img>)}
         </label>
         <label>
           Or, upload an image
@@ -100,6 +125,7 @@ const NewCreator = () => {
             onChange={handleFileChange}
           />
         </label>
+        <img src={preview}></img>
         <label>
           Description
           <textarea
@@ -107,6 +133,34 @@ const NewCreator = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+        <h2>Social media URLs</h2>
+        <label>
+          YouTube URL:
+          <input
+            name="youtubeURL"
+            type="text"
+            value={youtubeURL}
+            onChange={(e) => setYoutubeURL(e.target.value)}
+          />
+        </label>
+        <label>
+          Twitter URL:
+          <input
+            name="twitterURL"
+            type="text"
+            value={twitterURL}
+            onChange={(e) => setTwitterURL(e.target.value)}
+          />
+        </label>
+        <label>
+          Instagram URL:
+          <input
+            name="instagramURL"
+            type="text"
+            value={instagramURL}
+            onChange={(e) => setInstagramURL(e.target.value)}
           />
         </label>
         <button type="submit">Submit form</button>

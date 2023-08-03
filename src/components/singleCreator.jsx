@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom"
 import useCreatorData from "../api/useCreatorData"
 import { supabase } from "../client"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function SingleCreator() {
   const { id } = useParams()
   const creator = useCreatorData(id)
+
+  const navigate = useNavigate()
 
   if (!creator) {
     return <div aria-busy="true">Loading...</div>
@@ -19,6 +22,7 @@ export default function SingleCreator() {
 
     if (!error) {
       alert("creator deleted")
+      navigate("/")
     }
   }
 
