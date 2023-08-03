@@ -1,51 +1,49 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { supabase } from "../client";
+import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { supabase } from "../client"
 
 export default function EditCreator() {
-  const { id } = useParams();
-
-  const [name, setName] = useState("");
-  const [imageURL, setImageURL] = useState("");
-  const [description, setDescription] = useState("");
+  const { id } = useParams()
+  const [name, setName] = useState("")
+  const [imageURL, setImageURL] = useState("")
+  const [description, setDescription] = useState("")
 
   useEffect(() => {
-    // Fetch the creator data based on the given id
     async function fetchCreatorData() {
       const { data, error } = await supabase
         .from("creators2")
         .select()
         .eq("id", id)
-        .single();
+        .single()
 
       if (error) {
-        console.log(error);
+        console.log(error)
       } else {
-        setName(data.name);
-        setImageURL(data.imageURL);
-        setDescription(data.description);
+        setName(data.name)
+        setImageURL(data.imageURL)
+        setDescription(data.description)
       }
     }
 
-    fetchCreatorData();
-  }, [id]);
+    fetchCreatorData() 
+  }, [id])
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const { data, error } = await supabase
       .from("creators2")
       .update({ name, imageURL, description })
       .eq("id", id)
-      .select();
+      .select()
 
     if (error) {
-      console.log(error);
+      console.log(error)
     } else {
-      console.log(`Updated creator: ${name}`);
-      alert(`Submitted ${name}`);
+      console.log(`Updated creator: ${name}`)
+      alert(`Submitted ${name}`)
     }
-  };
+  }
 
   return (
     <>
@@ -81,5 +79,5 @@ export default function EditCreator() {
         </form>
       </div>
     </>
-  );
+  )
 }

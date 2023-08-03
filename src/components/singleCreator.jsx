@@ -1,21 +1,21 @@
-import { useParams } from "react-router-dom";
-import useCreatorData from "../api/useCreatorData";
-import { supabase } from "../client";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom"
+import useCreatorData from "../api/useCreatorData"
+import { supabase } from "../client"
+import { Link } from "react-router-dom"
 
 export default function SingleCreator() {
-  const { id } = useParams();
-  const creator = useCreatorData(id);
+  const { id } = useParams()
+  const creator = useCreatorData(id)
 
   if (!creator) {
-    return <div aria-busy="true">Loading...</div>;
+    return <div aria-busy="true">Loading...</div>
   }
 
   async function deleteCreator() {
     const { error } = await supabase
-      .from('creators2')
+      .from("creators2")
       .delete()
-      .eq('id', id)
+      .eq("id", id)
 
     if (!error) {
       alert("creator deleted")
@@ -38,5 +38,5 @@ export default function SingleCreator() {
         </section>
       </footer>
     </article>
-  );
+  )
 }

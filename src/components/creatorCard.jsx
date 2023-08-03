@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 export default function Creator({ name, image, description, id }) {
     if (!id) {
@@ -8,7 +8,7 @@ export default function Creator({ name, image, description, id }) {
     }
     return (
         <>
-            <div class="container grid">
+            <div className="container grid">
                 <article style={{display: "flex", flexDirection: "column"}}>
                     <header>
                         <hgroup>
