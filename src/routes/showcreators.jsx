@@ -11,6 +11,16 @@ export default function ShowCreators() {
         getCreators()
     }, [])
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
+
+{/* Performs similarly to componentDidMount in classes */}
+useEffect(() => {
+    window.addEventListener("resize", () => {
+        const ismobile = window.innerWidth < 1000;
+        if (ismobile !== isMobile) setIsMobile(ismobile);
+    }, false);
+}, [isMobile]);
+
     async function getCreators() {
         const { data } = await supabase
             .from("creators2")
@@ -25,7 +35,7 @@ export default function ShowCreators() {
 
     return (
 
-        <div className="container grid" style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
+        <div className={`container ${isMobile ? "" : "grid"}`} style={{ alignItems: "stretch", gridTemplateColumns: "repeat(2, 1fr)" }}>
             {creators.map((creator) => (
                 <Creator
                     key={creator.id}
