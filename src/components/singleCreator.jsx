@@ -13,7 +13,7 @@ export default function SingleCreator() {
 
   async function deleteCreator() {
     const { error } = await supabase
-      .from('creators')
+      .from('creators2')
       .delete()
       .eq('id', id)
 
