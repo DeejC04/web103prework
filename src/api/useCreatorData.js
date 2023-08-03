@@ -9,7 +9,7 @@ export default function useCreatorData(creatorId) {
   }, [creatorId]);
 
   async function getCreator() {
-    const { data, error } = await supabase.from("creators2").select().eq("id", creatorId).single();
+    const { data, error } = await supabase.from("creators").select().eq("id", creatorId).single();
     if (error) {
       console.error("Error fetching creator:", error);
     } else {
